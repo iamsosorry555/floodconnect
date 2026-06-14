@@ -14,7 +14,6 @@
             --danger: #f59e0b; /* Amber Caution */
             --emergency: #ef4444; /* Crimson Danger Alert */
             --bg-light: #f8fafc; /* Clean, Smooth Light Minimal Canvas */
-            --text-light: #f1f5f9;
             --text-dark: #0f172a;
             --text-muted: #64748b;
         }
@@ -34,26 +33,34 @@
             overflow-x: hidden;
         }
 
-        /* --- SMOOTH ENTRY ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from {
+        /* --- PREMIUM CINEMATIC ENTRANCE EFFECTS --- */
+        @keyframes revealBlur {
+            0% {
                 opacity: 0;
-                transform: translateY(30px);
+                filter: blur(15px);
+                transform: scale(0.96) translateY(25px);
             }
-            to {
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes slideUpStage {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.5); }
+            50% { box-shadow: 0 0 35px rgba(0, 243, 255, 0.45); }
         }
 
         /* Premium Blurred Navigation */
@@ -71,11 +78,10 @@
             align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            animation: fadeIn 1s ease-out;
         }
 
         nav .logo {
-            color: var(--text-light);
+            color: #f1f5f9;
             font-size: 1.5rem;
             font-weight: 800;
             display: flex;
@@ -108,26 +114,28 @@
             text-shadow: 0 0 12px var(--accent-glow);
         }
 
-        /* Premium Cinematic Header */
+        /* Cinematic Hero Header */
         header {
             background: radial-gradient(circle at 50% -20%, #172a45 0%, var(--primary) 100%);
-            color: var(--text-light);
-            padding: 13rem 2rem 8rem;
+            color: #f1f5f9;
+            padding: 14rem 2rem 9rem;
             text-align: center;
             position: relative;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            perspective: 1000px;
         }
 
         header h1 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             letter-spacing: -1.5px;
             line-height: 1.2;
-            /* Animation to make it appear smoothly out of nowhere */
+            
+            /* Cinematic blur-reveal entrance */
             opacity: 0;
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.2s;
+            animation: revealBlur 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.1s;
         }
 
         header h1 span {
@@ -143,9 +151,10 @@
             color: #94a3b8;
             font-weight: 400;
             line-height: 1.8;
-            /* Appearing animation delayed slightly after title */
+            
+            /* Delayed smooth reveal */
             opacity: 0;
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: revealBlur 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             animation-delay: 0.4s;
         }
 
@@ -157,29 +166,32 @@
             text-transform: uppercase;
             font-weight: 700;
             opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
-            animation-delay: 1s;
+            animation: slideUpStage 1.2s ease-out forwards;
+            animation-delay: 1.2s;
         }
 
         .credits strong {
-            color: var(--text-light);
+            color: #f1f5f9;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 3px;
         }
 
-        /* Flowchart Pipeline Diagram */
+        /* Staggered Cinematic Pipeline Layout */
         .diagram-container {
-            background: rgba(13, 25, 43, 0.6);
+            background: rgba(13, 25, 43, 0.45);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
-            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem 2.5rem;
             border-radius: 24px;
             margin: 3rem auto 1rem;
             max-width: 950px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            
+            /* Smooth cinematic container load */
             opacity: 0;
-            animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.6s;
+            animation: slideUpStage 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.7s;
         }
 
         .diagram-title {
@@ -189,7 +201,7 @@
             font-size: 0.85rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
         }
 
         .flowchart {
@@ -202,26 +214,35 @@
 
         .flow-node {
             background: var(--primary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.8rem 1.5rem;
+            border-radius: 18px;
             text-align: center;
             flex: 1;
             min-width: 220px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Nodes gracefully stage up into place */
+            opacity: 0;
+            animation: slideUpStage 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        /* Staggered node animations */
+        .flow-node:nth-child(1) { animation-delay: 0.9s; }
+        .flow-node:nth-child(3) { animation-delay: 1.1s; border-color: rgba(245, 158, 11, 0.3); }
+        .flow-node:nth-child(5) { animation-delay: 1.3s; border-color: rgba(16, 185, 129, 0.3); }
 
         .flow-node:hover {
             border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 243, 255, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.2);
         }
 
         .flow-node h4 {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: 0.4rem;
+            color: #f1f5f9;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
@@ -237,7 +258,11 @@
             font-size: 1.8rem;
             font-weight: 300;
             text-shadow: 0 0 10px var(--accent-glow);
+            opacity: 0;
+            animation: revealBlur 1s ease-out forwards;
         }
+        .flow-arrow:nth-child(2) { animation-delay: 1s; }
+        .flow-arrow:nth-child(4) { animation-delay: 1.2s; }
 
         /* Problem & Solution Cards Layout */
         .intro-section {
@@ -439,7 +464,7 @@
         .info-panel {
             grid-column: span 2;
             background: linear-gradient(145deg, var(--secondary) 0%, var(--primary) 100%);
-            color: var(--text-light);
+            color: #f1f5f9;
             padding: 4.5rem;
             border-radius: 32px;
             margin-top: 2rem;
@@ -507,7 +532,7 @@
         }
 
         .matrix-box strong {
-            color: var(--text-light);
+            color: #f1f5f9;
             display: block;
             margin-bottom: 4px;
             font-size: 0.95rem;
@@ -525,7 +550,7 @@
         /* Clean Structural Footer */
         footer {
             background-color: var(--primary);
-            color: var(--text-light);
+            color: #f1f5f9;
             text-align: center;
             padding: 6rem 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -578,12 +603,12 @@
                     <p>Rain Gauges & Blended Wide Radar Networks</p>
                 </div>
                 <div class="flow-arrow">→</div>
-                <div class="flow-node" style="border-color: var(--danger);">
+                <div class="flow-node">
                     <h4>Predictive AI Logic</h4>
                     <p>Granular Runoff Vectors & High Rise Calculations</p>
                 </div>
                 <div class="flow-arrow">→</div>
-                <div class="flow-node" style="border-color: var(--safe);">
+                <div class="flow-node">
                     <h4>Civic Response</h4>
                     <p>3-Tier Safety Alerts & Coordinates Despatch</p>
                 </div>
