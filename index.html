@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flood Connect - Real-Time Flood Warning & Emergency Platform</title>
+    <title>Flood Connect - Real-Time AI Flood Warning System</title>
     <style>
         :root {
             --primary: #0b1a30; /* Deep Storm Navy */
@@ -115,9 +115,53 @@
             letter-spacing: 0.5px;
         }
 
+        /* Diagrams Styles */
+        .diagram-container {
+            background: #1e293b;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .diagram-title {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .flowchart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .flow-node {
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 160px;
+            font-size: 0.9rem;
+        }
+
+        .flow-arrow {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
         /* Grid Framework Sections */
         .intro-section {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -320,6 +364,12 @@
             nav ul {
                 display: none;
             }
+            .flowchart {
+                flex-direction: column;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
         }
     </style>
 </head>
@@ -335,8 +385,29 @@
     </nav>
 
     <header id="about">
-        <h1>Real-Time Environmental Diagnostics Via <span>Flood Connect</span></h1>
-        <p>An integrated public hazard mitigation infrastructure designed to close the gap between intricate remote sensory tracking and real-time community emergency logistics.</p>
+        <h1><span>Flood Connect</span> - Real-Time AI Flood Warning System</h1>
+        <p>An advanced disaster mitigation platform powered by AI and live hydrological metrics to empower small communities and fast track emergency rescue coordination.</p>
+        
+        <div class="diagram-container">
+            <div class="diagram-title">System Architecture Demonstration Pipeline</div>
+            <div class="flowchart">
+                <div class="flow-node">
+                    <strong>Sensory Inputs</strong><br>
+                    Rain Gauges & Radar Merging
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node" style="border-color: #fbbf24;">
+                    <strong>AI Analytics Engine</strong><br>
+                    Runoff & Risk Estimation
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node" style="border-color: #4ade80;">
+                    <strong>Civic Outputs</strong><br>
+                    3-Tier Safety Alerts & Coordinates
+                </div>
+            </div>
+        </div>
+
         <div class="credits">
             Conceived and Structured by <strong>Monica Mutheu & Neil Lutta</strong>
         </div>
@@ -346,15 +417,16 @@
         <div class="card">
             <h2>The Systemic Problem</h2>
             <ul>
-                <li><strong>Public Blindspots:</strong> Critical real-time geographical data rarely reaches the general public, leading to individuals getting blind-sided and trapped by rapid flash floods.</li>
-                <li><strong>Coordination Lag:</strong> Emergency response and local rescue entities experience systemic delays mapping pathways due to missing localized environmental datasets.</li>
-                <li><strong>Compounded Devastation:</strong> Local residential sectors suffer preventable loss of physical property, agricultural assets, and human life due to a complete absence of localized micro-community thresholds.</li>
+                <li>Many people do not know when or where floods will happen. Because of this, individuals get trapped in flooded zones.</li>
+                <li>Rescue teams take significantly longer to navigate and reach high-risk areas effectively.</li>
+                <li>Property and lives are lost since there is no centralized warning system or real-time local info updates.</li>
+                <li>Vulnerable populations cannot plan or coordinate asset evacuation paths to safe areas in time.</li>
             </ul>
         </div>
         <div class="card" style="border-left-color: var(--safe);">
             <h2>The Core Hypothesis</h2>
-            <p>If small communities and disaster management teams are equipped with an integrated processing pipeline that visualizes radar-merged rainfall patterns alongside live stream metrics, tactical safety margins increase significantly.</p>
-            <p style="margin-top: 1.2rem;">By presenting highly technical early warning metrics within clean, responsive community visual layouts, residents possess the actionable intelligence needed to coordinate timely protective maneuvers and preserve lives.</p>
+            <p>If people had access to accurate, real-time information about flood-affected areas, then they would be able to plan, avoid dangerous zones, and reduce the risk of losing their lives, homes, and crops.</p>
+            <p style="margin-top: 1.2rem;">This will also help emergency services respond more quickly and efficiently, making communities safer during sudden flood events.</p>
         </div>
     </section>
 
@@ -365,33 +437,33 @@
         <div class="features-grid">
             
             <div class="feature-box">
-                <h3>Continuous Location Mapping</h3>
+                <h3>Real-Time Location Tracking</h3>
                 <p>Monitors regional coordinate metrics to overlay localized security fields. Features three algorithmic threat thresholds matching surrounding river height and run-off speeds:</p>
                 <div class="status-container">
-                    <div class="status-badge status-safe">Safe Level</div>
-                    <div class="status-badge status-danger">Danger State</div>
-                    <div class="status-badge status-emergency">Emergency Alert</div>
+                    <div class="status-badge status-safe">Safe</div>
+                    <div class="status-badge status-danger">Danger</div>
+                    <div class="status-badge status-emergency">Emergency</div>
                 </div>
             </div>
 
             <div class="feature-box">
-                <h3>Emergency Telemetry Despatch</h3>
-                <p>Configured to transmit real-time distress pings paired with precise localized GPS positioning values to nearby dispatch units the moment a danger threshold is compromised.</p>
+                <h3>Emergency Alert System</h3>
+                <p>Enables individuals to instantly fire off distress telemetry including exact GPS coordinates directly to dispatchers and rescue teams the moment safety conditions fail.</p>
             </div>
 
             <div class="feature-box">
-                <h3>Direct Authority Interface</h3>
+                <h3>Authority Communication Channel</h3>
                 <p>Provides a dedicated, direct communications vector establishing a continuous chat link between affected populations and field response coordinators during crises.</p>
             </div>
 
             <div class="feature-box">
-                <h3>Predictive AI Risk Modeling</h3>
+                <h3>AI-Powered Risk Assessment</h3>
                 <p>Processes real-time rainfall data inputs, ascending river level sensors, and historical patterns to output granular risk matrices indicating which communities face immediate saturation.</p>
             </div>
 
             <div class="feature-box">
-                <h3>Localized Likelihood Forecasting</h3>
-                <p>Utilizes historic predictive analytics to determine the probability of impending flash rises, providing vulnerable micro-climates crucial hours to safeguard livestock and equipment.</p>
+                <h3>Flood Likelihood Research</h3>
+                <p>Utilizes historic predictive analytics to determine the probability of impending flash rises, providing small micro-climates crucial hours to safeguard livestock and equipment before a disaster hits.</p>
             </div>
 
         </div>
@@ -432,6 +504,18 @@
             <div class="info-panel">
                 <h3>3. Radar–Rain Gauge Merging Matrix Optimization</h3>
                 <p>A primary challenge in urban and local hydrology is navigating the limitations of individual sensors. Rain gauges provide precise point data but lack spatial range. Conversely, weather radar offers vast regional coverage but experiences mathematical degradation from distance and atmospheric distortions.</p>
+                
+                <div style="background: rgba(255,255,255,0.08); border: 1px dashed var(--accent); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                    <div style="text-align: center; font-size: 0.85rem; color: var(--accent); font-weight: bold; margin-bottom: 0.8rem; text-transform: uppercase;">Matrix Blending Demonstration Model</div>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 0.85rem; text-align: center;">
+                        <div style="background: rgba(0,210,196,0.2); padding: 0.5rem; border-radius: 4px; width: 30%;">Gauge Data<br>(Local Pinpoint Accuracy)</div>
+                        <div style="font-weight: bold;">+</div>
+                        <div style="background: rgba(17,45,78,0.6); padding: 0.5rem; border-radius: 4px; width: 30%; border: 1px solid #ffffff40;">Radar Arrays<br>(Wide Spatial Context)</div>
+                        <div style="font-weight: bold;">=</div>
+                        <div style="background: rgba(74,222,128,0.2); padding: 0.5rem; border-radius: 4px; width: 30%; font-weight: bold; border: 1px solid var(--safe);">High-Res Blended Grid<br>(1km Bounds Map)</div>
+                    </div>
+                </div>
+
                 <p>To resolve this gap, the platform framework implements advanced data merging techniques. By applying bias adjustments, interpolation, and Bayesian integration models, the system synthesizes point-level precision with broad radar imagery. This produces high-resolution precipitation fields (1 km spatial resolution updated every 1–5 minutes) vital for modeling urban catchments where concrete surfaces trigger immediate flash runoff.</p>
                 <div style="margin-top: 0.5rem;">
                     <span class="tech-tag" style="background: var(--primary); color: white;">Bias Adjustment Integration</span>
